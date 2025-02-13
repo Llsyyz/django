@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路径输入表单</title>
+</head>
+<body>
+<nav class="header">
+    <div class="logo">
+        <a href="#home">home</a>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="start search">
+        <button type="submit">search</button>
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">more</a>
+                <div class="dropdown-content">
+                    <a href="#about">about</a>
+                    <a href="#contact">contact</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+<div class="body">
+    <div class="container">
+        <form action="/app/index/deal" method="post" class="form">
+            {% csrf_token %}
+            <!-- 路径 1 输入框 -->
+            <div>
+                <label for="path1">路径 1:</label>
+                <input type="text" id="path1" name="dir_from" placeholder="文件夹路径: ">
+            </div>
+
+            <!-- 路径 2 输入框 -->
+            <div>
+                <label for="path2">路径 2:</label>
+                <input type="text" id="path2" name="file_sort" placeholder="项目分类表路径: ">
+            </div>
+
+            <!-- 路径 2 输入框 -->
+            <div>
+                <label for="path2">路径 3:</label>
+                <input type="text" id="path3" name="file_to" placeholder="合并文件输出路径: ">
+            </div>
+
+            <div>
+                <label for="path2">路径 4:</label>
+                <input type="text" id="path4" name="project" placeholder="项目类型(抖音/直播): ">
+            </div>
+            <!-- 提交按钮 -->
+            <button type="submit" class="submit">提交</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 14px;
+    }
+
+    .header {
+        background-color: beige;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .logo {
+        margin: 20px;
+    }
+
+    .logo a {
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+    .header .menu ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .menu ul li {
+        margin: 10px;
+    }
+
+    .header .menu ul li a {
+        text-decoration: none;
+    }
+
+    .menu li a:hover {
+        background-color: #555;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 120px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form input {
+        margin: 10px;
+    }
+</style>
