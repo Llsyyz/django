@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,136 +8,362 @@
     <title>路径输入表单</title>
 </head>
 <body>
-<nav class="header">
-    <div class="logo">
-        <a href="#home">home</a>
-    </div>
-    <div class="search">
-        <input type="text" placeholder="start search">
-        <button type="submit">search</button>
-    </div>
-    <div class="menu">
-        <ul>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">more</a>
-                <div class="dropdown-content">
-                    <a href="#about">about</a>
-                    <a href="#contact">contact</a>
+<main>
+    <section class="glass">
+        <div class="dashboard">
+            <div class="user">
+                <img src="{% static 'image/田园犬.png' %}" alt="">
+                <h2>Sixi</h2>
+            </div>
+            <div class="links">
+                <div class="link" onclick="showDou()">
+                    <img src="{% static 'image/抖音.png' %}" alt="a">
+                    <h2>抖音</h2>
                 </div>
-            </li>
-        </ul>
-    </div>
-
-
-</nav>
-
-<div class="body">
-    <div class="container">
-        <form action="/app/index/deal" method="post" class="form">
-            {% csrf_token %}
-            <!-- 路径 1 输入框 -->
-            <div>
-                <label for="path1">路径 1:</label>
-                <input type="text" id="path1" name="dir_from" placeholder="文件夹路径: ">
+                <div class="link" onclick="showPdd()">
+                    <img src="{% static 'image/拼多多.png' %}" alt="a">
+                    <h2>拼多多</h2>
+                </div>
             </div>
+        </div>
 
-            <!-- 路径 2 输入框 -->
-            <div>
-                <label for="path2">路径 2:</label>
-                <input type="text" id="path2" name="file_sort" placeholder="项目分类表路径: ">
+        <div class="content">
+            <h2>已开发</h2>
+            <div class="combine" id="douyin">
+                <ul>
+                    <li><a href="/app/index">1.订单明细合并</a></li>
+                    <li><a href="baidu.com">2.资金流水合并</a></li>
+                    <li><a href="baidu.com">3.销售入库合并</a></li>
+                    <li><a href="baidu.com">4.订单明细处理</a></li>
+                    <li><a href="baidu.com">5.资金流水处理</a></li>
+                    <li><a href="baidu.com">6.销售入库处理</a></li>
+                </ul>
             </div>
-
-            <!-- 路径 2 输入框 -->
-            <div>
-                <label for="path2">路径 3:</label>
-                <input type="text" id="path3" name="file_to" placeholder="合并文件输出路径: ">
+            <div class="combine" id="pdd">
+                <ul>
+                    <li><a href="baidu.com">1.万里牛订单合并</a></li>
+                    <li><a href="baidu.com">2.货款明细合并</a></li>
+                    <li><a href="baidu.com">3.退款明细合并</a></li>
+                    <li><a href="baidu.com">4.推广流水合并</a></li>
+                </ul>
             </div>
-
-            <div>
-                <label for="path2">路径 4:</label>
-                <input type="text" id="path4" name="project" placeholder="项目类型(抖音/直播): ">
-            </div>
-            <!-- 提交按钮 -->
-            <button type="submit" class="submit">提交</button>
-        </form>
-    </div>
-</div>
+        </div>
+    </section>
+</main>
+<div class="circle1"></div>
+<div class="circle2"></div>
 </body>
 </html>
 
 <style>
-    body {
-        font-family: Consolas, 'Courier New', monospace;
-        font-size: 14px;
+    * {
+        font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        box-sizing: border-box;
     }
 
-    .header {
-        background-color: beige;
+    main {
+        height: 1000px;
+        background: linear-gradient(to right top, #65dfc9, #6cdbeb);
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .header .logo {
-        margin: 20px;
-    }
-
-    .logo a {
+    ul {
         text-decoration: none;
-        font-size: 1.2em;
     }
 
-    .header .menu ul {
-        list-style-type: none;
+    .glass {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        background: white;
+        height: 600px;
+        width: 60%;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        border-radius: 1rem;
+        z-index: 2;
+        backdrop-filter: blur(1rem);
     }
 
-    .header .menu ul li {
-        margin: 10px;
-    }
-
-    .header .menu ul li a {
-        text-decoration: none;
-    }
-
-    .menu li a:hover {
-        background-color: #555;
-    }
-
-    .dropdown-content {
-        display: none;
+    .circle1, .circle2 {
+        background: white;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        height: 14rem;
+        width: 14rem;
         position: absolute;
-        min-width: 120px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
+        border-radius: 50%;
     }
 
-    .dropdown:hover .dropdown-content {
-        display: block;
+    .circle1 {
+        top: 11%;
+        right: 13%;
     }
 
-    .dropdown-content a {
-        padding: 10px 15px;
-        text-decoration: none;
-        display: block;
+    .circle2 {
+        bottom: 1%;
+        left: 13%;
     }
 
-    .container {
+    .dashboard {
+        flex: 1;
+        padding: 20px;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        border-radius: 1rem;
+    }
+
+    .content {
         display: flex;
-        align-items: center;
         justify-content: center;
-    }
-
-    .form {
+        align-items: center;
         flex-direction: column;
+        flex: 2;
+        padding: 20px;
+    }
+
+    .content h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .combine {
+        width: 45%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px;
+        padding: 15px;
+
+    }
+
+    .combine ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .combine ul li {
+        text-align: center;
+        font-size: 14px;
+        color: #000000;
+        margin: 10px 0;
+        padding: 8px;
+        border: 2px solid #000000;
+        border-radius: 8px;
+    }
+
+    .combine ul li:hover {
+        background: linear-gradient(to right bottom, rgba(127, 176, 213, 0.7), rgba(36, 81, 193, 0.38));
+        cursor: pointer;
+    }
+
+    .combine ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .user {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 20%;
+        margin-bottom: 60%;
     }
 
-    .form input {
-        margin: 10px;
+    .user img {
+        height: 50px;
+        border: 2px solid aliceblue;
+        border-radius: 45%;
     }
+
+    .user h2 {
+        margin-left: 10px;
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 20px;
+    }
+
+    .links :hover {
+        background: linear-gradient(to right bottom, rgba(127, 176, 213, 0.7), rgba(36, 81, 193, 0.38));
+        cursor: pointer;
+    }
+
+    .link img {
+        height: 20px;
+        border-radius: 3px;
+    }
+
+    .link h2 {
+        margin-left: 10px;
+        font-size: small;
+    }
+
+    #pdd {
+        display: none;
+    }
+
 </style>
+
+<script>
+    function showPdd() {
+        var douyin = document.getElementById("douyin");
+        var pdd = document.getElementById("pdd");
+        douyin.style.display = "none";
+        pdd.style.display = "block";
+        console.log(pdd)
+    }
+    function showDou() {
+        var douyin = document.getElementById("douyin");
+        var pdd = document.getElementById("pdd");
+        douyin.style.display = "block";
+        pdd.style.display = "none";
+    }
+</script>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>路径输入表单</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="header">-->
+<!--    <div class="logo">-->
+<!--        <a href="#home">home</a>-->
+<!--    </div>-->
+<!--    <div class="search">-->
+<!--        <input type="text" placeholder="start search">-->
+<!--        <button type="submit">search</button>-->
+<!--    </div>-->
+<!--    <div class="menu">-->
+<!--        <ul>-->
+<!--            <li class="dropdown">-->
+<!--                <a href="javascript:void(0)" class="dropbtn">more</a>-->
+<!--                <div class="dropdown-content">-->
+<!--                    <a href="#about">about</a>-->
+<!--                    <a href="#contact">contact</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+
+<!--</nav>-->
+
+<!--<div class="body">-->
+<!--    <div class="container">-->
+<!--        <form action="/app/index/deal/" method="post" class="form">-->
+<!--            {% csrf_token %}-->
+<!--            &lt;!&ndash; 路径 1 输入框 &ndash;&gt;-->
+<!--            <div>-->
+<!--                <label for="path1">路径 1:</label>-->
+<!--                <input type="text" id="path1" name="dir_from" placeholder="文件夹路径: ">-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; 路径 2 输入框 &ndash;&gt;-->
+<!--            <div>-->
+<!--                <label for="path2">路径 2:</label>-->
+<!--                <input type="text" id="path2" name="file_sort" placeholder="项目分类表路径: ">-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; 路径 2 输入框 &ndash;&gt;-->
+<!--            <div>-->
+<!--                <label for="path2">路径 3:</label>-->
+<!--                <input type="text" id="path3" name="file_to" placeholder="合并文件输出路径: ">-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <label for="path2">路径 4:</label>-->
+<!--                <input type="text" id="path4" name="project" placeholder="项目类型(抖音/直播): ">-->
+<!--            </div>-->
+<!--            &lt;!&ndash; 提交按钮 &ndash;&gt;-->
+<!--            <button type="submit" class="submit">提交</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<style>-->
+<!--    body {-->
+<!--        font-family: Consolas, 'Courier New', monospace;-->
+<!--        font-size: 14px;-->
+<!--    }-->
+
+<!--    .header {-->
+<!--        background-color: beige;-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        justify-content: center;-->
+<!--    }-->
+
+<!--    .header .logo {-->
+<!--        margin: 20px;-->
+<!--    }-->
+
+<!--    .logo a {-->
+<!--        text-decoration: none;-->
+<!--        font-size: 1.2em;-->
+<!--    }-->
+
+<!--    .header .menu ul {-->
+<!--        list-style-type: none;-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        justify-content: center;-->
+<!--    }-->
+
+<!--    .header .menu ul li {-->
+<!--        margin: 10px;-->
+<!--    }-->
+
+<!--    .header .menu ul li a {-->
+<!--        text-decoration: none;-->
+<!--    }-->
+
+<!--    .menu li a:hover {-->
+<!--        background-color: #555;-->
+<!--    }-->
+
+<!--    .dropdown-content {-->
+<!--        display: none;-->
+<!--        position: absolute;-->
+<!--        min-width: 120px;-->
+<!--        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);-->
+<!--        z-index: 1;-->
+<!--    }-->
+
+<!--    .dropdown:hover .dropdown-content {-->
+<!--        display: block;-->
+<!--    }-->
+
+<!--    .dropdown-content a {-->
+<!--        padding: 10px 15px;-->
+<!--        text-decoration: none;-->
+<!--        display: block;-->
+<!--    }-->
+
+<!--    .container {-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        justify-content: center;-->
+<!--    }-->
+
+<!--    .form {-->
+<!--        flex-direction: column;-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        justify-content: center;-->
+<!--    }-->
+
+<!--    .form input {-->
+<!--        margin: 10px;-->
+<!--    }-->
+<!--</style>-->

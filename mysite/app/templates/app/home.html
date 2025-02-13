@@ -16,18 +16,37 @@
                 <h2>Sixi</h2>
             </div>
             <div class="links">
-                <div class="link">
+                <div class="link" onclick="showDou()">
                     <img src="{% static 'image/抖音.png' %}" alt="a">
                     <h2>抖音</h2>
                 </div>
-                <div class="link">
+                <div class="link" onclick="showPdd()">
                     <img src="{% static 'image/拼多多.png' %}" alt="a">
                     <h2>拼多多</h2>
                 </div>
             </div>
         </div>
+
         <div class="content">
-            <h2>hello</h2>
+            <h2>已开发</h2>
+            <div class="combine" id="douyin">
+                <ul>
+                    <li><a href="/app/index">1.订单明细合并</a></li>
+                    <li><a href="baidu.com">2.资金流水合并</a></li>
+                    <li><a href="baidu.com">3.销售入库合并</a></li>
+                    <li><a href="baidu.com">4.订单明细处理</a></li>
+                    <li><a href="baidu.com">5.资金流水处理</a></li>
+                    <li><a href="baidu.com">6.销售入库处理</a></li>
+                </ul>
+            </div>
+            <div class="combine" id="pdd">
+                <ul>
+                    <li><a href="baidu.com">1.万里牛订单合并</a></li>
+                    <li><a href="baidu.com">2.货款明细合并</a></li>
+                    <li><a href="baidu.com">3.退款明细合并</a></li>
+                    <li><a href="baidu.com">4.推广流水合并</a></li>
+                </ul>
+            </div>
         </div>
     </section>
 </main>
@@ -38,14 +57,20 @@
 
 <style>
     * {
+        font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         box-sizing: border-box;
     }
+
     main {
         height: 1000px;
         background: linear-gradient(to right top, #65dfc9, #6cdbeb);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    ul {
+        text-decoration: none;
     }
 
     .glass {
@@ -86,8 +111,54 @@
     }
 
     .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         flex: 2;
         padding: 20px;
+    }
+
+    .content h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .combine {
+        width: 45%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px;
+        padding: 15px;
+
+    }
+
+    .combine ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .combine ul li {
+        text-align: center;
+        font-size: 14px;
+        color: #000000;
+        margin: 10px 0;
+        padding: 8px;
+        border: 2px solid #000000;
+        border-radius: 8px;
+    }
+
+    .combine ul li:hover {
+        background: linear-gradient(to right bottom, rgba(127, 176, 213, 0.7), rgba(36, 81, 193, 0.38));
+        cursor: pointer;
+    }
+
+    .combine ul li a {
+        text-decoration: none;
+        color: black;
     }
 
     .user {
@@ -104,7 +175,7 @@
         border-radius: 45%;
     }
 
-    .user h2{
+    .user h2 {
         margin-left: 10px;
     }
 
@@ -119,6 +190,7 @@
 
     .links :hover {
         background: linear-gradient(to right bottom, rgba(127, 176, 213, 0.7), rgba(36, 81, 193, 0.38));
+        cursor: pointer;
     }
 
     .link img {
@@ -131,4 +203,24 @@
         font-size: small;
     }
 
+    #pdd {
+        display: none;
+    }
+
 </style>
+
+<script>
+    function showPdd() {
+        var douyin = document.getElementById("douyin");
+        var pdd = document.getElementById("pdd");
+        douyin.style.display = "none";
+        pdd.style.display = "block";
+        console.log(pdd)
+    }
+    function showDou() {
+        var douyin = document.getElementById("douyin");
+        var pdd = document.getElementById("pdd");
+        douyin.style.display = "block";
+        pdd.style.display = "none";
+    }
+</script>
